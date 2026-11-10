@@ -1,6 +1,8 @@
 name: Semantic Link Labs
 
-on: [push]
+on:
+  workflow_dispatch:
+  "push":
 
 permissions:
   contents: read
