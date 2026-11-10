@@ -47,6 +47,14 @@ jobs:
           environment-file: environment.yml
           channel-priority: strict
 
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install package
         shell: bash -el {0}
         run: |
